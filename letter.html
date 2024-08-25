@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Letter</title>
+    <style>
+        body {
+            background-color: pink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            width: 800px;
+            height: 800px;
+            display: flex;
+            flex-direction: column;            
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        #paragraph {        
+    font-size: 25px;
+            white-space: normal; /* Allow word wrapping */
+            overflow-y: auto; /* Enable vertical scrolling if necessary */
+            height: 200px; /* Adjust the height as needed */ce */
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <audio id="audio" autoplay loop>
+            <source src="your-music.mp3" type="audio/mpeg">
+        </audio>
+        <p id="paragraph"></p>
+    </div>
+    <script>
+        const paragraph = document.getElementById('paragraph');
+        const text = "This is a typing animation with music shsjsjjwsjwjjwjjwjjsjsjsjwuwiwiwiwiwuwieiwiwiwiwiwieieieieieiwieieieie.";
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                paragraph.textContent += text[index];
+                index++;
+                setTimeout(type, 120); // Adjust typing speed as needed
+            }
+        }
+
+        window.addEventListener('load', () => {
+            type();
+        });
+    </script>
+</body>
+</html>
