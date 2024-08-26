@@ -14,46 +14,66 @@
 
         .container {
             background-color: white;
-            width: 800px;
-            height: 800px;
+            width: 850px;
+            height: 850px;
             display: flex;
-            flex-direction: column;            
+            flex-direction: column;
             align-items: center;
-            border-radius: 10px;
         }
 
-        #paragraph {        
-    font-size: 25px;
-            white-space: normal; /* Allow word wrapping */
-            overflow-y: auto; /* Enable vertical scrolling if necessary */
-            height: 800px; /* Adjust the height as needed */ce */
+        .button {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            font-size: 30px;
+            margin-top: 50%;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px; /* Adjust margin as needed */
+        }
 
+        .paragraph {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        #typing-text {
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <audio id="audio" autoplay>
-            <source src="sining.mp3" type="audio/mpeg">
-        </audio>
-        <p id="paragraph"></p>
+        <button class="button" onclick="playAudio()">Lovey click this po</button>
+        <p class="paragraph" id="typing-text"></p>
     </div>
+    <audio id="myAudio">
+        <source src="sining.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <script>
-        const paragraph = document.getElementById('paragraph');
-        const text = "Hii yana it's been exactly 153 days or 5months na since i started courting you. meeting you was one of the best thing that happen in my life and im really glad and blessed that i met you. thankyouu for making my day brighter and happier, no words or sweet msg can explain how much iloveyouu and always remember that no matter what happen i will always loveyouu not just your good side but also your bad side and not just thru your highest but also to your lowest point. Again thankyouu sa mga moments na nabuo natin throught those 5months forever kong ichecherish un maraming salamat ulii and im looking forward for more days, months and years na kasama pero sana next time as we celebrate our special day sana may tayo na HAHAHAH yun lang thankyouu ulii and iloveyouuuuu sm";
-        let index = 0;
+        var audio = document.getElementById("myAudio");
+        var text = document.getElementById("typing-text");
+        var button = document.querySelector(".button");
+        var typingInterval = 50; // Adjust typing speed (in milliseconds)
+        var typingText = "This is a sample text that will appear slowly.";
 
-        function type() {
-            if (index < text.length) {
-                paragraph.textContent += text[index];
-                index++;
-                setTimeout(type, 80); // Adjust typing speed as needed
-            }
+        function playAudio() {
+            audio.play();
+            button.style.display = "none"; // Hide the button
+            typeText();
         }
 
-        window.addEventListener('load', () => {
-            type();
-        });
+        function typeText() {
+            if (typingText.length > 0) {
+                text.textContent += typingText[0];
+                typingText = typingText.substring(1);
+                setTimeout(typeText, typingInterval);
+            }
+        }
     </script>
 </body>
 </html>
